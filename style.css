@@ -15,9 +15,10 @@ body{
     background: black;
     border-radius: 50px;
     color: white;
-    height: 1218px;
+    height: 1150px;
     padding: 20px;
     width: 563px;
+    position: relative;
 }
 
 .top-container{
@@ -52,6 +53,7 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: filter .3s;
 }
 
 .button.function{
@@ -71,4 +73,20 @@ body{
     grid-column: 1 / span 2;
     /* grid-column-start: 1; NOT NEEDED CUZ OF GRID-COLUMN
     grid-column-end: 3; */
+}
+
+.button:active,
+.button:focus{
+    filter: brightness(120%);
+}
+
+.bottom{
+    width: 200px;
+    height: 5px;
+    background: white;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
