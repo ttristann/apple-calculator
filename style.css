@@ -51,6 +51,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .button.function{
@@ -60,4 +61,14 @@ body{
 
 .button.operator{
     background: #f1a33c
+}
+
+.button.number-0{
+    width: 250px;
+    border-radius: 55px;
+    justify-content: flex-start;
+    padding-left: 43px;
+    grid-column: 1 / span 2;
+    /* grid-column-start: 1; NOT NEEDED CUZ OF GRID-COLUMN
+    grid-column-end: 3; */
 }
