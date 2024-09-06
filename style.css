@@ -11,6 +11,10 @@ body{
 
 }
 
+.clock{
+    font-size: 20px;
+}
+
 .calculator{
     background: black;
     border-radius: 50px;
