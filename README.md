@@ -1,2 +1,4 @@
 # apple-calculator
-A different way of making the calculator from the simple-calculator while making it look like more of the apple calculator
+A different approach to making the calculator with HTML cursor element while making it look more like the
+apple calculator app found in their devices. Follow along the youtube video "Build an Iphone Calculator..." 
+posted by Justin Kim. 
