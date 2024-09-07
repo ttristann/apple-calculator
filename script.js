@@ -3,7 +3,7 @@
 const hourEl = document.querySelector('.hour');
 const minuteEl = document.querySelector('.minute');
 // screen
-const displayEl = document.querySelector('.display');
+const valueEl = document.querySelector('.value');
 // functions
 const acEl = document.querySelector('.ac');
 const pmEl = document.querySelector('.pm');
@@ -33,12 +33,27 @@ const numberElArray = [
 ];
 
 // Functions
+const getValueAsStr = () => valueEl.textContent.split(',').join('');
+
+const getValueAsNum = () => {
+    return parseFloat(getValueAsStr());
+};
+
+const handleNumberClick = (numStr) => {
+    const currentValueStr = getValueAsStr();
+    if (currentValueStr === '0') {
+        valueEl.textContent = numStr;
+    }
+    else {
+        valueEl.textContent = parseFloat(currentValueStr + numStr).toLocaleString();
+    }
+};
 
 // Event Listeners to numbers and buttons
-for (let i=0; i < numberElArray.length; ++i) {
+for (let i=0; i < numberElArray.length; i++) {
     const numberEl = numberElArray[i];
-    numberEl.addEventListener('.click', () => {
-        // complete functions
+    numberEl.addEventListener('click', () => {
+        handleNumberClick(i.toString());
     });
 }
 
