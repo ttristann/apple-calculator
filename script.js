@@ -65,6 +65,23 @@ const handleNumberClick = (numStr) => {
     }
 };
 
+// Event Listener to functions
+acEl.addEventListener('click', () => {
+    setStrAsValue('0');
+});
+
+pmEl.addEventListener('click', () => {
+    const currentValueNum = getValueAsNum();
+    const newValueNum = currentValueNum * -1;
+    setStrAsValue(newValueNum.toString());
+});
+
+percentEl.addEventListener('click', () => {
+    const currentValueNum = getValueAsNum();
+    const newValueNum = currentValueNum/100;
+    setStrAsValue(newValueNum.toString());
+});
+
 // Event Listeners to numbers and buttons
 for (let i=0; i < numberElArray.length; i++) {
     const numberEl = numberElArray[i];
