@@ -32,7 +32,7 @@ const numberElArray = [
     number5El, number6El, number7El, number8El, number9El
 ];
 
-// Functions
+// Helper Functions
 const getValueAsStr = () => valueEl.textContent.split(',').join('');
 
 const getValueAsNum = () => {
@@ -72,8 +72,22 @@ acEl.addEventListener('click', () => {
 
 pmEl.addEventListener('click', () => {
     const currentValueNum = getValueAsNum();
-    const newValueNum = currentValueNum * -1;
-    setStrAsValue(newValueNum.toString());
+    const currentValueStr = getValueAsStr();
+    
+    if(currentValueStr === 'NaN'){
+        setStrAsValue('-0');
+        return;
+    }
+    if(currentValueStr === '-0'){
+        setStrAsValue('0');
+        return;
+    }
+    if(currentValueNum >= 0){
+        setStrAsValue('-' + currentValueStr);
+    }
+    else {
+        setStrAsValue(currentValueStr.substring(1));
+    }
 });
 
 percentEl.addEventListener('click', () => {
