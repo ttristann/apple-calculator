@@ -39,13 +39,29 @@ const getValueAsNum = () => {
     return parseFloat(getValueAsStr());
 };
 
+const setStrAsValue = (valueStr) => {
+    if(valueStr[valueStr.length - 1] === '.'){
+        valueEl.textContent += '.';
+        return;
+    }
+    const [wholeNumStr, decimalStr] = valueStr.split('.');
+    if (decimalStr) {
+        valueEl.textContent = parseFloat(wholeNumStr).toLocaleString() + '.' + decimalStr;
+    }
+    else {
+        valueEl.textContent = parseFloat(wholeNumStr).toLocaleString();
+    }
+};
+
 const handleNumberClick = (numStr) => {
     const currentValueStr = getValueAsStr();
     if (currentValueStr === '0') {
-        valueEl.textContent = numStr;
+        // valueEl.textContent = numStr;
+        setStrAsValue(numStr);
     }
     else {
-        valueEl.textContent = parseFloat(currentValueStr + numStr).toLocaleString();
+        // valueEl.textContent = parseFloat(currentValueStr + numStr).toLocaleString();
+        setStrAsValue(currentValueStr + numStr);
     }
 };
 
@@ -56,6 +72,13 @@ for (let i=0; i < numberElArray.length; i++) {
         handleNumberClick(i.toString());
     });
 }
+
+decimalEl.addEventListener('click', () => {
+    const currentValueStr = getValueAsStr();
+    if(!currentValueStr.includes('.')) {
+        setStrAsValue(currentValueStr + '.');
+    }
+});
 
 // Setting up the time
 const updateTime = () => {
