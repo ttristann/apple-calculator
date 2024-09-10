@@ -51,20 +51,28 @@ const setStrAsValue = (valueStr) => {
     const [wholeNumStr, decimalStr] = valueStr.split('.');
     if (decimalStr) {
         valueEl.textContent = parseFloat(wholeNumStr).toLocaleString() + '.' + decimalStr;
+        console.log(valueEl.textContent.length);
     }
     else {
-        valueEl.textContent = parseFloat(wholeNumStr).toLocaleString();
+        let valuebuffer = parseFloat(wholeNumStr).toLocaleString();
+        if(valuebuffer.length < 12) {
+            valueEl.textContent = valuebuffer;
+            if(valueEl.textContent.length > 8) {
+                valueEl.style.fontSize = '90px';
+            }
+            else {
+                valueEl.style.fontSize = '130px';
+            }
+        }
     }
 };
 
 const handleNumberClick = (numStr) => {
     const currentValueStr = getValueAsStr();
     if (currentValueStr === '0') {
-        // valueEl.textContent = numStr;
         setStrAsValue(numStr);
     }
     else {
-        // valueEl.textContent = parseFloat(currentValueStr + numStr).toLocaleString();
         setStrAsValue(currentValueStr + numStr);
     }
 };

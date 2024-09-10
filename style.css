@@ -38,6 +38,7 @@ body{
     margin-bottom: 20px;
     height: 158px;
     text-align: right;
+    overflow: hidden;
 }
 
 .buttons-container{
