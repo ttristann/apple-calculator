@@ -50,8 +50,16 @@ const setStrAsValue = (valueStr) => {
     }
     const [wholeNumStr, decimalStr] = valueStr.split('.');
     if (decimalStr) {
-        valueEl.textContent = parseFloat(wholeNumStr).toLocaleString() + '.' + decimalStr;
-        console.log(valueEl.textContent.length);
+        let decimalbuffer = parseFloat(wholeNumStr).toLocaleString() + '.' + decimalStr;
+        if(decimalbuffer.length < 12) {
+            valueEl.textContent = decimalbuffer;
+            if(valueEl.textContent.length > 8) {
+                valueEl.style.fontSize = '90px';
+            }
+            else {
+                valueEl.style.fontSize = '130px';
+            }
+        }
     }
     else {
         let valuebuffer = parseFloat(wholeNumStr).toLocaleString();
